@@ -22,8 +22,12 @@ app.use("/Form", router);
 const contactEmail = nodemailer.createTransport({
   service: 'gmail',
   auth: {
+    type: 'OAuth2', //new
     user: process.env.nodeEmail,
     pass: process.env.nodePassword,
+    clientId: process.env.OAUTH_CLIENTID, //new
+    clientSecret: process.env.OAUTH_CLIENT_SECRET, //new
+    refreshToken: process.env.OAUTH_REFRESH_TOKEN //new
   },
 });
 
